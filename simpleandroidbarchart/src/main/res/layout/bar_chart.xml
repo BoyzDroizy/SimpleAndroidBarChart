@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary">
+
+    <LinearLayout
+        android:id="@+id/chartLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_16dp"
+        android:layout_marginTop="@dimen/space_35dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@+id/max_value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_35dp"
+            android:translationY="2dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/graphLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="@dimen/space_2dp"
+                android:alpha="0"
+                android:elevation="@dimen/space_2dp"
+                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardCornerRadius="@dimen/space_2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:alpha="1"
+                tools:listitem="@layout/adapter_bar_chart">
+
+                <TextView
+                    android:id="@+id/max_value_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/space_16dp"
+                    android:paddingEnd="@dimen/space_16dp"
+                    android:textColor="@color/darkerBlue"
+                    android:textSize="@dimen/text_17sp"
+                    tools:text="$80.20" />
+            </androidx.cardview.widget.CardView>
+        </FrameLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/chart_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_160dp"
+            android:orientation="horizontal"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toStartOf="@+id/max_value"
+            tools:listitem="@layout/adapter_bar_chart" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/max_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_32dp"
+        android:gravity="end"
+        android:includeFontPadding="false"
+        android:paddingStart="@dimen/space_16dp"
+        android:paddingEnd="@dimen/space_16dp"
+        android:textColor="@color/grayBorder"
+        android:textSize="@dimen/text_12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/chartLayout"
+        tools:text="$12k" />
+
+    <TextView
+        android:id="@+id/min_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/space_23dp"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:paddingStart="@dimen/space_5dp"
+        android:paddingEnd="@dimen/space_16dp"
+        android:textColor="@color/grayBorder"
+        android:textSize="@dimen/text_12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/chartLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/chartLayout"
+        tools:text="$0" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/dates_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_24dp"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/space_16dp"
+        android:paddingEnd="@dimen/space_16dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@+id/chartLayout"
+        tools:layout_editor_absoluteX="-187dp"
+        tools:listitem="@layout/adapter_bar_interval" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
