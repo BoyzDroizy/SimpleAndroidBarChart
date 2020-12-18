@@ -1,3 +1,0 @@
-include ':simpleandroidbarchart'
-include ':app'
-rootProject.name = "SimpleAndroidBarChart"
