@@ -4,6 +4,11 @@
 :loudspeaker: SimpleAndroidBarChart is an Open Source Android library, that allows you to display a proposal of barchart. This is a simple example, for more customizations, you can download source code and custom it for your requirements.
 </p><br>
 
+<p align="center">
+<img src="https://raw.githubusercontent.com/BoyzDroizy/SimpleAndroidBarChart/assets/images/BarChart.png" width="32%"/>
+</p>
+</br>
+
 ## Including in your project
 [![](https://jitpack.io/v/BoyzDroizy/SimpleAndroidBarChart.svg)](https://jitpack.io/#BoyzDroizy/SimpleAndroidBarChart)
 <a href="https://android-arsenal.com/api?level=26"><img alt="API" src="https://img.shields.io/badge/API-26%2B-brightgreen.svg?style=flat"/></a>
