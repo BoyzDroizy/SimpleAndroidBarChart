@@ -9,6 +9,11 @@
 </p>
 </br>
 
+## YouTube video
+<a href="https://youtu.be/VmnQK9e56dY" 
+target="_blank"><img src="https://img.youtube.com/vi/VmnQK9e56dY/1.jpg" 
+alt="IMAGE ALT TEXT HERE" width="150" height="100" /></a> 
+
 ## Including in your project
 [![](https://jitpack.io/v/BoyzDroizy/SimpleAndroidBarChart.svg)](https://jitpack.io/#BoyzDroizy/SimpleAndroidBarChart)
 <a href="https://android-arsenal.com/api?level=26"><img alt="API" src="https://img.shields.io/badge/API-26%2B-brightgreen.svg?style=flat"/></a>
@@ -31,6 +36,28 @@ And add a dependency code to your **module**'s `build.gradle` file.
 	dependencies {
 	        implementation 'com.github.BoyzDroizy:SimpleAndroidBarChart:1.0'
 	}
+```
+
+## Usage
+
+### Basic Example (Kotlin)
+Firstly, you need to add this custom text view to the layout of the class <br>
+
+``` xml
+    <com.boyzdroizy.simpleandroidbarchart.SimpleBarChart
+        android:id="@+id/simpleBarChart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+```
+In your class, using the 'id' from layout, call 'setChartData' method to give values for populate the chart.<br>
+
+```kotlin
+    val chartData = (12 downTo 1).map { Random.nextInt(10, 100) }.toMutableList()
+    val intervalData = (12 downTo 1).map { it }.toMutableList()
+
+    simpleBarChart.setChartData(chartData, intervalData)
+    simpleBarChart.setMaxValue(max)
+    simpleBarChart.setMinValue(0)
 ```
 
 ## Find this library useful? :heart:
