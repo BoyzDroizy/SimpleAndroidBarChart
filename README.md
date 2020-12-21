@@ -5,7 +5,7 @@
 </p><br>
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/BoyzDroizy/SimpleAndroidBarChart/assets/images/BarChart.png" width="32%"/>
+<img src="https://raw.githubusercontent.com/BoyzDroizy/SimpleAndroidBarChart/assets/images/BarChartGif.gif" width="50%"/>
 </p>
 </br>
 
