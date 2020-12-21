@@ -3,6 +3,7 @@ package com.boyzdroizy.simpleandroidbarchart
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -10,13 +11,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        val chartData = mutableListOf<Any>("", "", "", "", "", "", "", "", "", "", "", "")
-        val intervalData = mutableListOf<Any>("", "", "", "", "", "", "")
-
-
+        val chartData = (12 downTo 1).map { Random.nextInt(10, 100) }.toMutableList()
+        val intervalData = (12 downTo 1).map { it }.toMutableList()
         simpleBarChart.setChartData(chartData, intervalData)
-
-        simpleBarChart.setMaxValue("$120")
-        simpleBarChart.setMinValue("$0")
+        simpleBarChart.setMinValue(0)
     }
 }

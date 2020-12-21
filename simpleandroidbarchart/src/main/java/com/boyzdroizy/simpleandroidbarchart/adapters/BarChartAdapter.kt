@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.adapter_bar_chart.view.*
 import kotlin.random.Random
 
 class BarChartAdapter(
-    private val items: MutableList<Any>,
+    private val items: MutableList<Int>,
     private val chartInterface: ChartInterface
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -32,10 +32,10 @@ class BarChartAdapter(
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        fun bind(item: Any, position: Int) {
+        fun bind(item: Int, position: Int) {
             itemView.let { view ->
                 view.chart_value.text = position.inc().toString()
-                initProgressBar(view.progressBar, Random.nextInt(10, 100))
+                initProgressBar(view.progressBar, item)
                 displayIndicatorFunc(view)
             }
         }

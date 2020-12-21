@@ -14,6 +14,7 @@ import com.boyzdroizy.simpleandroidbarchart.utils.Utils
 import com.boyzdroizy.simpleandroidbarchart.utils.alphaHide
 import com.boyzdroizy.simpleandroidbarchart.utils.px
 import kotlinx.android.synthetic.main.bar_chart.view.*
+import kotlin.random.Random
 
 
 class SimpleBarChart @JvmOverloads constructor(
@@ -23,11 +24,9 @@ class SimpleBarChart @JvmOverloads constructor(
 ) : FrameLayout(context, attrs, defStyleAttr), BarChartAdapter.ChartInterface,
     BarIntervalsAdapter.IntervalsInterface {
 
-    var items12 = mutableListOf<Any>()
-    var items7 = mutableListOf<Any>()
-
     override fun onIntervalSelected(value: String) {
-        initAnalyticsChartAdapter(if (value == "7") items7 else items12)
+        val list = (1..value.toInt()).map { Random.nextInt(10, 100) }
+        initAnalyticsChartAdapter(list.toMutableList())
     }
 
     override fun onChartValueSelected(x: Int, alpha: Float, value: Int) {
@@ -55,14 +54,15 @@ class SimpleBarChart @JvmOverloads constructor(
     }
 
 
-    private fun initAnalyticsChartAdapter(items: MutableList<Any>) {
+    private fun initAnalyticsChartAdapter(items: MutableList<Int>) {
         graphLabel.alphaHide()
+        setMaxValue(items.max() ?: 0)
         val classesAdapter = BarChartAdapter(items, this)
         chart_recycler.layoutManager = GridLayoutManager(this.context, items.size)
         chart_recycler.adapter = classesAdapter
     }
 
-    private fun initAnalyticsIntervalsAdapter(items: MutableList<Any>) {
+    private fun initAnalyticsIntervalsAdapter(items: MutableList<Int>) {
         val classesAdapter = BarIntervalsAdapter(items, this)
         dates_recycler.layoutManager =
             LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
@@ -73,20 +73,17 @@ class SimpleBarChart @JvmOverloads constructor(
         initView(context)
     }
 
-    fun setChartData(chartData: MutableList<Any>, intervals: MutableList<Any>) {
+    fun setChartData(chartData: MutableList<Int>, intervals: MutableList<Int>) {
         initAnalyticsChartAdapter(chartData)
         initAnalyticsIntervalsAdapter(intervals)
-
-        items12 = chartData
-        items7 = intervals
     }
 
-    fun setMaxValue(maxValue: String) {
-        max_value.text = maxValue
+    fun setMaxValue(maxValue: Int) {
+        max_value.text = maxValue.toString()
     }
 
-    fun setMinValue(minValue: String) {
-        min_value.text = minValue
+    fun setMinValue(minValue: Int) {
+        min_value.text = minValue.toString()
     }
 
     companion object {

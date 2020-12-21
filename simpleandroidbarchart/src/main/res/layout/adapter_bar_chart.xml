@@ -4,37 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/space_160dp"
-    tools:layout_width="@dimen/space_30dp">
+    android:layout_height="@dimen/space_160dp">
 
     <View
         android:id="@+id/indicator"
         android:layout_width="1dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/space_5dp"
         android:alpha="0"
         android:background="@color/grayBorder"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@+id/progressBar"
-        app:layout_constraintEnd_toEndOf="@+id/progressBar"
-        app:layout_constraintStart_toStartOf="@+id/progressBar"
-        app:layout_constraintTop_toTopOf="@+id/progressBar" />
+        app:layout_constraintBottom_toBottomOf="@+id/progressBarFrame"
+        app:layout_constraintEnd_toEndOf="@+id/progressBarFrame"
+        app:layout_constraintStart_toStartOf="@+id/progressBarFrame"
+        app:layout_constraintTop_toTopOf="@+id/progressBarFrame" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
+    <FrameLayout
+        android:id="@+id/progressBarFrame"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="@dimen/space_5dp"
-        android:max="100"
-        android:progress="0"
-        android:progressDrawable="@drawable/item_chart"
         app:layout_constraintBottom_toTopOf="@+id/chart_value"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.6"
-        tools:layout_width="16dp"
-        tools:progress="50" />
+        app:layout_constraintWidth_max="50dp"
+        app:layout_constraintWidth_percent="0.6">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:max="100"
+            android:progress="0"
+            android:progressDrawable="@drawable/item_chart"
+            tools:progress="50" />
+    </FrameLayout>
 
     <TextView
         android:id="@+id/chart_value"
@@ -42,12 +49,12 @@
         android:layout_height="@dimen/space_20dp"
         android:gravity="center_vertical"
         android:includeFontPadding="false"
-        tools:text="1-7"
         android:textColor="@color/grayBorder"
         android:textSize="@dimen/text_12sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/progressBar"
-        app:layout_constraintStart_toStartOf="@+id/progressBar" />
+        app:layout_constraintEnd_toEndOf="@+id/progressBarFrame"
+        app:layout_constraintStart_toStartOf="@+id/progressBarFrame"
+        tools:text="1-7" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

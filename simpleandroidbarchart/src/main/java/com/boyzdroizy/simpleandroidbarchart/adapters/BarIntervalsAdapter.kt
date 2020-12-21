@@ -8,8 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.boyzdroizy.simpleandroidbarchart.R
 import kotlinx.android.synthetic.main.adapter_bar_interval.view.*
 
+
 class BarIntervalsAdapter(
-    private val items: MutableList<Any>,
+    private val items: MutableList<Int>,
     private val intervalsInterface: IntervalsInterface
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -32,8 +33,7 @@ class BarIntervalsAdapter(
 
         fun bind(item: Any, position: Int) {
             itemView.let { view ->
-                val value = mutableListOf(7, 12).random()
-                view.value.text = "$value"
+                view.value.text = "$item"
 
                 displaySelectionFunc(view, position)
             }
